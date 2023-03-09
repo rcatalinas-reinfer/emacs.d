@@ -15,8 +15,8 @@
   :bind (:map evil-insert-state-map
               ("C-k" . 'comment-indent-new-line)
               ("C-j" . 'evil-normal-state)
-              ("C-x C-o" . 'company-complete)
-              ("C-x C-f" . 'company-files)
+              ;; ("C-x C-o" . 'company-complete)
+              ;; ("C-x C-f" . 'company-files)
          :map evil-normal-state-map
               ("C-." . nil)
 
@@ -110,41 +110,41 @@
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-(use-package company
-  :custom
-  (company-begin-commands '(self-insert-command))
-  (company-require-match nil)
-  (company-idle-delay .1)
-  (company-minimum-prefix-length 2)
-  (company-tooltip-limit 20)
-  (company-tooltip-align-annotations t)
-  (company-echo-delay 0)
-  (company-selection-wrap-around t)
-  (company-dabbrev-downcase nil)
-  (company-dabbrev-ignore-case nil)
-  :config
-  (add-hook 'after-init-hook 'global-company-mode)
-  :bind (:map company-active-map
-              ([tab] . company-complete-common-or-cycle)
-              ("C-f" . company-filter-candidates)
-              ("C-p" . company-select-previous)
-              ("C-n" . company-select-next)))
+;; (use-package company
+;;   :custom
+;;   (company-begin-commands '(self-insert-command))
+;;   (company-require-match nil)
+;;   (company-idle-delay .1)
+;;   (company-minimum-prefix-length 2)
+;;   (company-tooltip-limit 20)
+;;   (company-tooltip-align-annotations t)
+;;   (company-echo-delay 0)
+;;   (company-selection-wrap-around t)
+;;   (company-dabbrev-downcase nil)
+;;   (company-dabbrev-ignore-case nil)
+;;   :config
+;;   (add-hook 'after-init-hook 'global-company-mode)
+;;   :bind (:map company-active-map
+;;               ([tab] . company-complete-common-or-cycle)
+;;               ("C-f" . company-filter-candidates)
+;;               ("C-p" . company-select-previous)
+;;               ("C-n" . company-select-next)))
 
-(use-package company-box
-  :if window-system
-  :hook (company-mode . company-box-mode))
+;; (use-package company-box
+;;   :if window-system
+;;   :hook (company-mode . company-box-mode))
 
-(use-package company-quickhelp
-  :config
-  (company-quickhelp-mode))
+;; (use-package company-quickhelp
+;;   :config
+;;   (company-quickhelp-mode))
 
-(use-package company-quickhelp-terminal
-  :if (not window-system)
-  :custom
-  (company-quickhelp-use-propertized-text nil)
-  :config
-  (with-eval-after-load 'company-quickhelp
-    (company-quickhelp-terminal-mode 1)))
+;; (use-package company-quickhelp-terminal
+;;   :if (not window-system)
+;;   :custom
+;;   (company-quickhelp-use-propertized-text nil)
+;;   :config
+;;   (with-eval-after-load 'company-quickhelp
+;;     (company-quickhelp-terminal-mode 1)))
 
 (use-package ace-jump-mode)
 
